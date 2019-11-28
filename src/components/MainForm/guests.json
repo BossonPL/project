@@ -1,0 +1,28 @@
+{
+  "guests": [
+    {
+      "id": "k3huhf0f",
+      "surname": "Ślaski",
+      "name": "Borys",
+      "country": "Polska",
+      "city": "Warszawa",
+      "street": "Al.Jerozolimskie, 85/17",
+      "arrive": "2019-11-15",
+      "departure": "2019-11-23",
+      "days": 8,
+      "notes": ""
+    },
+    {
+      "id": "k3hut9m4",
+      "surname": "Ślaski",
+      "name": "Borys",
+      "country": "Polska",
+      "city": "Łeba",
+      "street": "Nadmorska 9",
+      "arrive": "2019-11-16",
+      "departure": "2019-11-30",
+      "days": 14,
+      "notes": ""
+    }
+  ]
+}

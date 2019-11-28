@@ -1,0 +1,28 @@
+{
+  "guests": [
+    {
+      "id": "k3h4vgl8",
+      "surname": "Ślaski",
+      "name": "Borys",
+      "country": "Polska",
+      "city": "Warszawa",
+      "street": "Al.Jerozolimskie, 85/17",
+      "arrive": "2019-11-06",
+      "departure": "2019-11-22",
+      "days": 16,
+      "notes": "brak"
+    },
+    {
+      "id": "k3h4wl4k",
+      "surname": "Ślaska",
+      "name": "Sylwia",
+      "country": "Polska",
+      "city": "Warszawa",
+      "street": "Al.Jerozolimskie, 85/17",
+      "arrive": "2019-10-01",
+      "departure": "2019-11-27",
+      "days": 57,
+      "notes": "brak"
+    }
+  ]
+}
