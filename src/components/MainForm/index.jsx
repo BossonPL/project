@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import "./style.scss";
 import uniqid from 'uniqid';
-import FormHead from "../FormHead";
-// import InnerMainForm from "../InnerMainForm";
+
 import TableTD from "../TableTD";
 import ButtonRemove from "../ButtonRemove";
 import ButtonEdit from "../ButtonEdit";
+import FormHead from "../FormHead";
+
 
 
 class MainForm extends Component  {
@@ -25,7 +26,7 @@ class MainForm extends Component  {
         searchNameGuests: [],
         searchCountryGuests: [],
         searchDateGuests: [],
-        nonPolandNbr: ''
+        nonPolandNbr: 0
     };
     componentDidMount() {
         this.fetchGuests();
@@ -124,7 +125,7 @@ class MainForm extends Component  {
             searchNameGuests : [],
             searchCountryGuests: [],
             searchDateGuests: []
-        })
+        });
     };
     onGuestEdit = id => {
         const URL_ADDRESS = `http://localhost:3000/guests/${id}`;
@@ -152,7 +153,7 @@ class MainForm extends Component  {
                 <h1> Rejestracja Gości </h1>
                 <p> Ilość gości w bazie : {guest.length}</p>
                 <p> {this.state.nonPolandNbr !==0 ? `Ilość zagranicznych gości w bazie : ${this.state.nonPolandNbr}`: null}</p>
-                <form  className="form">
+                <form  className="form" >
                     <input onChange={this.onInputChange} type="text" name="surname" value={surname} placeholder="Nazwisko"/>
                     <input onChange={this.onInputChange} type="text" name="name" value={name} placeholder="Imię"/>
                     <input onChange={this.onInputChange} type="text" name="country" value={country} placeholder="Kraj pochodzenia"/>
@@ -162,10 +163,9 @@ class MainForm extends Component  {
                     <input onChange={this.onInputChange} type="date" name="departure" value={departure} placeholder="Data wyjazdu : "/>
                     <input onChange={this.onInputChange} type="textarea" name="notes" value={notes} placeholder="Uwagi"/>
                 </form>
-                {/*<InnerMainForm  onChange={this.onInputChange} surname={surname} name={name} country={country} city={city} street={street} arrive={arrive} departure={departure} notes={notes}/>*/}
                 <div className="buttons">
-                    <button  onClick={this.onButtonSearchClick} className='btn search' name="szukaj"> Szukaj </button>
-                     <button onClick={this.onButtonClick} className='btn add' name="dodaj"> Dodaj</button>
+                      {(surname.length+name.length+country.length+city.length+street.length+arrive.length+departure.length !== 0) ? (<button  onClick={this.onButtonSearchClick} className='btn search' name="szukaj"> Szukaj </button>) : null}
+                      <button onClick={this.onButtonClick} className='btn add' name="dodaj"> Dodaj</button>
                 </div>
             </div>
                 <table className="zui-table">
