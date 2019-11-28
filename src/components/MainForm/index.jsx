@@ -4,7 +4,8 @@ import uniqid from 'uniqid';
 import FormHead from "../FormHead";
 // import InnerMainForm from "../InnerMainForm";
 import TableTD from "../TableTD";
-
+import ButtonRemove from "../ButtonRemove";
+import ButtonEdit from "../ButtonEdit";
 
 
 class MainForm extends Component  {
@@ -18,7 +19,7 @@ class MainForm extends Component  {
         street: '',
         arrive: '',
         departure: '',
-        days:'',
+        days: '',
         notes: '',
         searchGuests: [],
         searchNameGuests: [],
@@ -52,7 +53,10 @@ class MainForm extends Component  {
         const date1 = new Date(this.state.arrive);
         const date2 = new Date(this.state.departure);
         const Difference_In_Time = date2.getTime() - date1.getTime();
-        const Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+        const Difference_In_Day = Difference_In_Time / (1000 * 3600 * 24);
+        const Difference_In_DayString= String(Difference_In_Day);
+        let Difference_In_Days ;
+        Difference_In_DayString === 'NaN' ?  ( Difference_In_Days = 0 ) : Difference_In_Days =Difference_In_DayString ;
         const addGuest = {
             id: uniqid(),
             surname: this.state.surname,
@@ -160,8 +164,8 @@ class MainForm extends Component  {
                 </form>
                 {/*<InnerMainForm  onChange={this.onInputChange} surname={surname} name={name} country={country} city={city} street={street} arrive={arrive} departure={departure} notes={notes}/>*/}
                 <div className="buttons">
-                    {surname.length+name.length+country.length+city.length+street.length+arrive.length+departure.length !==0 ? <button  onClick={this.onButtonSearchClick} className='btn search' name="szukaj"> Szukaj </button> : null}
-                    {surname.length+name.length+country.length+city.length+street.length+arrive.length+departure.length !==0 ? <button onClick={this.onButtonClick} className='btn add' name="dodaj"> Dodaj</button> : null}
+                    <button  onClick={this.onButtonSearchClick} className='btn search' name="szukaj"> Szukaj </button>
+                     <button onClick={this.onButtonClick} className='btn add' name="dodaj"> Dodaj</button>
                 </div>
             </div>
                 <table className="zui-table">
@@ -169,8 +173,8 @@ class MainForm extends Component  {
                     {searchCountryGuests.map(searchCountryGuests => (
                         <tr key={searchCountryGuests.id}>
                             <TableTD guest={searchCountryGuests}/>
-                            <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestEdit.bind(this, searchCountryGuests.id)}> Edytuj </td>
-                            <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestDelete.bind(this, searchCountryGuests.id)}> Usuń </td>
+                            <ButtonEdit onButtonEdit={this.onGuestEdit.bind(this, searchCountryGuests.id)}/>
+                            <ButtonRemove onButtonRemove={this.onGuestDelete.bind(this, searchCountryGuests.id)}/>
                         </tr>
                     ))}
                     </tbody>
@@ -180,8 +184,8 @@ class MainForm extends Component  {
                     {searchDateGuests.map(searchDateGuests => (
                         <tr key={searchDateGuests.id}>
                             <TableTD guest={searchDateGuests}/>
-                            <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestEdit.bind(this, searchDateGuests.id)}> Edytuj </td>
-                            <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestDelete.bind(this, searchDateGuests.id)}> Usuń </td>
+                            <ButtonEdit onButtonEdit={this.onGuestEdit.bind(this, searchDateGuests.id)}/>
+                            <ButtonRemove onButtonRemove={this.onGuestDelete.bind(this, searchDateGuests.id)}/>
                         </tr>
                     ))}
                     </tbody>
@@ -191,8 +195,8 @@ class MainForm extends Component  {
                     {searchNameGuests.map(searchNameGuests => (
                         <tr key={searchNameGuests.id}>
                             <TableTD guest={searchNameGuests}/>
-                            <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestEdit.bind(this, searchNameGuests.id)}> Edytuj </td>
-                            <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestDelete.bind(this, searchNameGuests.id)}> Usuń </td>
+                            <ButtonEdit onButtonEdit={this.onGuestEdit.bind(this, searchNameGuests.id)}/>
+                            <ButtonRemove onButtonRemove={this.onGuestDelete.bind(this, searchNameGuests.id)}/>
                         </tr>
                     ))}
                     </tbody>
@@ -202,8 +206,8 @@ class MainForm extends Component  {
                         {searchGuests.map(searchGuests => (
                             <tr key={searchGuests.id}>
                                 <TableTD guest={searchGuests} />
-                                <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestEdit.bind(this, searchGuests.id)}> Edytuj </td>
-                                <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestDelete.bind(this, searchGuests.id)}> Usuń </td>
+                                <ButtonEdit onButtonEdit={this.onGuestEdit.bind(this, searchGuests.id)}/>
+                                <ButtonRemove onButtonRemove={this.onGuestDelete.bind(this, searchGuests.id)}/>
                             </tr>
                         ))}
                         </tbody>
@@ -214,8 +218,8 @@ class MainForm extends Component  {
                     {guest.map(guest => (
                         <tr key={guest.id}>
                            <TableTD guest={guest} />
-                            <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestEdit.bind(this, guest.id)}> Edytuj </td>
-                            <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestDelete.bind(this, guest.id)}> Usuń </td>
+                            <ButtonEdit onButtonEdit={this.onGuestEdit.bind(this, guest.id)}/>
+                            <ButtonRemove onButtonRemove={this.onGuestDelete.bind(this, guest.id)}/>
                         </tr>
                     ))}
                     </tbody>

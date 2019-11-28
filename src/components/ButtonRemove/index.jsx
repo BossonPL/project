@@ -1,8 +1,12 @@
 import React ,{Component} from "react";
 
-class ButtonAdd extends Component {
+class ButtonRemove extends Component {
+    onButtonRemoveClick = () => {
+        this.props.onButtonRemove();
+    };
     render() {
-        return <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onGuestDelete.bind(this, searchCountryGuests.id)}> Usuń </td>
+
+        return <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onButtonRemoveClick}> Usuń </td>
     }
 }
 
