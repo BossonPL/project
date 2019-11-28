@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "//github.com/BossonPL/project/static/css/main.55054b0b.chunk.css",
+    "main.js": "//github.com/BossonPL/project/static/js/main.12c294f6.chunk.js",
+    "main.js.map": "//github.com/BossonPL/project/static/js/main.12c294f6.chunk.js.map",
+    "runtime-main.js": "//github.com/BossonPL/project/static/js/runtime-main.b5807855.js",
+    "runtime-main.js.map": "//github.com/BossonPL/project/static/js/runtime-main.b5807855.js.map",
+    "static/js/2.1556f07b.chunk.js": "//github.com/BossonPL/project/static/js/2.1556f07b.chunk.js",
+    "static/js/2.1556f07b.chunk.js.map": "//github.com/BossonPL/project/static/js/2.1556f07b.chunk.js.map",
+    "index.html": "//github.com/BossonPL/project/index.html",
+    "precache-manifest.4c9b277cb3d3111166a839cf0c1e0601.js": "//github.com/BossonPL/project/precache-manifest.4c9b277cb3d3111166a839cf0c1e0601.js",
+    "service-worker.js": "//github.com/BossonPL/project/service-worker.js",
+    "static/css/main.55054b0b.chunk.css.map": "//github.com/BossonPL/project/static/css/main.55054b0b.chunk.css.map",
+    "static/media/style.scss": "//github.com/BossonPL/project/static/media/logo.add084ed.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b5807855.js",
+    "static/js/2.1556f07b.chunk.js",
+    "static/css/main.55054b0b.chunk.css",
+    "static/js/main.12c294f6.chunk.js"
+  ]
+}
