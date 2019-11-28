@@ -23,13 +23,15 @@ class MainForm extends Component  {
         days: '',
         notes: '',
         searchGuests: [],
-        searchNameGuests: [],
-        searchCountryGuests: [],
-        searchDateGuests: [],
         nonPolandNbr: 0
     };
     componentDidMount() {
         this.fetchGuests();
+        const today = new Date().toISOString().slice(0, 10);
+        this.setState({
+            arrive: today,
+            departure: today
+        })
     }
 
     fetchGuests = () => {
@@ -58,6 +60,7 @@ class MainForm extends Component  {
         const Difference_In_DayString= String(Difference_In_Day);
         let Difference_In_Days ;
         Difference_In_DayString === 'NaN' ?  ( Difference_In_Days = 0 ) : Difference_In_Days =Difference_In_DayString ;
+        let today = new Date().toISOString().slice(0, 10);
         const addGuest = {
             id: uniqid(),
             surname: this.state.surname,
@@ -78,8 +81,8 @@ class MainForm extends Component  {
             country: '',
             city: '',
             street: '',
-            arrive: '',
-            departure: '',
+            arrive: today,
+            departure: today,
             days:'',
             notes: ''
         });
@@ -96,24 +99,15 @@ class MainForm extends Component  {
     onButtonSearchClick = (e) => {
         e.preventDefault();
         const filteredGuests = this.state.guest.filter( el => el.surname === this.state.surname);
-        this.setState({
-            searchGuests : filteredGuests,
-            surname: ''
-        });
         const filteredNameGuests = this.state.guest.filter( el=> el.name === this.state.name);
-        this.setState({
-            searchNameGuests : filteredNameGuests,
-            name: ''
-        });
         const filteredCountryGuests = this.state.guest.filter( el=> el.country === this.state.country);
-        this.setState({
-            searchCountryGuests : filteredCountryGuests,
-            country: ''
-        });
         const filteredDateGuests = this.state.guest.filter( el=> el.arrive === this.state.arrive);
         this.setState({
-            searchDateGuests : filteredDateGuests,
-            date: ''
+            searchGuests : [...filteredGuests,...filteredNameGuests,...filteredCountryGuests,...filteredDateGuests],
+            surname: '',
+            name: '',
+            country: '',
+            arrive:''
         });
     };
     onGuestDelete = id => {
@@ -121,11 +115,8 @@ class MainForm extends Component  {
         fetch(URL_ADDRESS, { method: 'delete' })
             .then(() => this.fetchGuests());
         this.setState({
-            searchGuests : [],
-            searchNameGuests : [],
-            searchCountryGuests: [],
-            searchDateGuests: []
-        });
+            searchGuests : []
+        })
     };
     onGuestEdit = id => {
         const URL_ADDRESS = `http://localhost:3000/guests/${id}`;
@@ -142,9 +133,8 @@ class MainForm extends Component  {
                 notes: data.notes
             })).then(() => this.onGuestDelete(id));
     };
-
     render() {
-        const {surname, name, country, city, street, arrive, departure, guest, notes ,searchGuests, searchNameGuests, searchCountryGuests, searchDateGuests} = this.state;
+        const {surname, name, country, city, street, arrive, departure, guest, notes ,searchGuests} = this.state;
         return (
             <>
             <div className="container">
@@ -165,53 +155,21 @@ class MainForm extends Component  {
                 </form>
                 <div className="buttons">
                       {(surname.length+name.length+country.length+city.length+street.length+arrive.length+departure.length !== 0) ? (<button  onClick={this.onButtonSearchClick} className='btn search' name="szukaj"> Szukaj </button>) : null}
-                      <button onClick={this.onButtonClick} className='btn add' name="dodaj"> Dodaj</button>
+                    {(surname.length+name.length+country.length+city.length+street.length !== 0) ? (<button onClick={this.onButtonClick} className='btn add' name="dodaj"> Dodaj</button>) : null}
+                      {/*<button onClick={this.onButtonClick} className='btn add' name="dodaj"> Dodaj</button>*/}
                 </div>
             </div>
                 <table className="zui-table">
-                    <tbody>
-                    {searchCountryGuests.map(searchCountryGuests => (
-                        <tr key={searchCountryGuests.id}>
-                            <TableTD guest={searchCountryGuests}/>
-                            <ButtonEdit onButtonEdit={this.onGuestEdit.bind(this, searchCountryGuests.id)}/>
-                            <ButtonRemove onButtonRemove={this.onGuestDelete.bind(this, searchCountryGuests.id)}/>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-                <table className="zui-table">
-                    <tbody>
-                    {searchDateGuests.map(searchDateGuests => (
-                        <tr key={searchDateGuests.id}>
-                            <TableTD guest={searchDateGuests}/>
-                            <ButtonEdit onButtonEdit={this.onGuestEdit.bind(this, searchDateGuests.id)}/>
-                            <ButtonRemove onButtonRemove={this.onGuestDelete.bind(this, searchDateGuests.id)}/>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-                <table className="zui-table">
-                    <tbody>
-                    {searchNameGuests.map(searchNameGuests => (
-                        <tr key={searchNameGuests.id}>
-                            <TableTD guest={searchNameGuests}/>
-                            <ButtonEdit onButtonEdit={this.onGuestEdit.bind(this, searchNameGuests.id)}/>
-                            <ButtonRemove onButtonRemove={this.onGuestDelete.bind(this, searchNameGuests.id)}/>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-                    <table className="zui-table">
                         <tbody>
                         {searchGuests.map(searchGuests => (
-                            <tr key={searchGuests.id}>
+                            <tr key={uniqid()}>
                                 <TableTD guest={searchGuests} />
                                 <ButtonEdit onButtonEdit={this.onGuestEdit.bind(this, searchGuests.id)}/>
                                 <ButtonRemove onButtonRemove={this.onGuestDelete.bind(this, searchGuests.id)}/>
                             </tr>
                         ))}
                         </tbody>
-                    </table>
+                </table>
                 <table className="zui-table">
                    <FormHead />
                     <tbody>
