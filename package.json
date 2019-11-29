@@ -1,7 +1,6 @@
 {
   "name": "book",
   "version": "0.1.0",
-  "homepage":"https://BossonPL.github.io/project",
   "private": true,
   "dependencies": {
     "gh-pages": "^2.1.1",

@@ -182,6 +182,7 @@ class MainForm extends Component  {
                     ))}
                     </tbody>
                 </table>
+                <div className="bottom"></div>
                 </>
         )
     }

@@ -5,7 +5,7 @@ class ButtonEdit extends Component {
         this.props.onButtonEdit();
     };
     render() {
-        return <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none'}} onClick={this.onButtonEditClick}> Edytuj </td>
+        return <td style={{backgroundColor: 'red', color: 'white', textShadow: 'none', cursor: 'pointer'}} onClick={this.onButtonEditClick}> Edytuj </td>
     }
 }
 
