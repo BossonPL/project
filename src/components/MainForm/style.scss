@@ -27,12 +27,16 @@ body {
   margin-top: -4.5em;
 
 }
-h1,p {
+h1 {
+  color:white;
+  margin: 10px 0 5px 0;
+  padding: 0;
+}
+p {
   color:white;
   margin: 0 0 5px 0;
   padding: 0;
 }
-
 .form {
   display: flex;
   flex-direction: column;
