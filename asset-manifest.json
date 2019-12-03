@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.81a558f7.chunk.css",
-    "main.js": "/static/js/main.93ba3970.chunk.js",
-    "main.js.map": "/static/js/main.93ba3970.chunk.js.map",
+    "main.js": "/static/js/main.018592e5.chunk.js",
+    "main.js.map": "/static/js/main.018592e5.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.5bfd45f9.js",
     "runtime-main.js.map": "/static/js/runtime-main.5bfd45f9.js.map",
     "static/js/2.c4ef5649.chunk.js": "/static/js/2.c4ef5649.chunk.js",
     "static/js/2.c4ef5649.chunk.js.map": "/static/js/2.c4ef5649.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.1fa7871939fa22cd31f5c12c86581e08.js": "/precache-manifest.1fa7871939fa22cd31f5c12c86581e08.js",
+    "precache-manifest.28f17cf3c714e8758273c6dc40714c72.js": "/precache-manifest.28f17cf3c714e8758273c6dc40714c72.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.81a558f7.chunk.css.map": "/static/css/main.81a558f7.chunk.css.map",
     "static/media/style.scss": "/static/media/logo.add084ed.png"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.5bfd45f9.js",
     "static/js/2.c4ef5649.chunk.js",
     "static/css/main.81a558f7.chunk.css",
-    "static/js/main.93ba3970.chunk.js"
+    "static/js/main.018592e5.chunk.js"
   ]
 }
