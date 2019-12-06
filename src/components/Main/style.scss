@@ -1,0 +1,87 @@
+body {
+  background-image: url("beach-1449008_1280.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+
+}
+.zui-table {
+  margin: 0 ;
+  border: solid 0px #DDEEEE;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: #F2EAD7;
+  font: bold 13px Arial, sans-serif;
+  -webkit-box-shadow: 0px 0px 23px 23px #F2EAD7;
+  -moz-box-shadow: 0px 0px 23px 23px #F2EAD7;
+  box-shadow: 0px 0px 23px 23px #F2EAD7;
+
+}
+//.zui-table thead th {
+//  background-color: #0293DD;
+//  border: solid 0px #DDEEEE;
+//  color: white;
+//  padding: 10px;
+//  text-align: center;
+//}
+.zui-table tbody td  {
+  background-color: #F2EAD7;
+  border: solid 0px #DDEEEE;
+  color: #333;
+  padding: 10px;
+  text-shadow: 1px 1px 1px #fff;
+  text-align: center;
+
+}
+
+.borderBox {
+  width: fit-content;
+  border-radius: 50px;
+  margin-left: auto;
+  margin-right: 230px;
+  background-color: #1CC5E6;
+  -webkit-box-shadow: 0px 0px 23px 23px #F2EAD7;
+  -moz-box-shadow: 0px 0px 23px 23px #F2EAD7;
+  box-shadow: 0px 0px 23px 23px #F2EAD7;
+
+}
+
+button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: darkgray;
+  width: 25px;
+  height: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
+button:hover {
+  background: #1295DE;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+button:focus {
+  outline: none;
+  border: none;
+}
+.pl {
+  background: transparent url('./flagi-de.png')  !important;
+  width: 34px;
+  height: 23px;
+}
+.de {
+  background: transparent url('./flagi-pl.png')  !important;
+  width: 34px;
+  height: 23px;
+  color: black;
+}
