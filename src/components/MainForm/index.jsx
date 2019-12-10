@@ -136,7 +136,6 @@ class MainForm extends Component  {
     };
     render() {
         const {surname, name, country, city, street, arrive, departure, guest, notes ,searchGuests} = this.state;
-        const nonPoland = this.state.guest.filter( el => el.country !== 'Polska');
         return (
             <>
                 <div className="block">
@@ -146,7 +145,6 @@ class MainForm extends Component  {
                 <h1> Rejestracja Gości </h1>
                 <p> Ilość gości w bazie : {guest.length}</p>
                 <p> {this.state.nonPolandNbr !==0 ? `Ilość zagranicznych gości w bazie : ${this.state.nonPolandNbr}`: null}</p>
-                {/*<p> {this.state.nonPolandNbr !==0 ? `Ilość zagranicznych gości w bazie : ${nonPoland.length}`: null}</p>*/}
                 <form  className="form" >
                     <input onChange={this.onInputChange} type="text" name="surname" value={surname} placeholder="Nazwisko"/>
                     <input onChange={this.onInputChange} type="text" name="name" value={name} placeholder="Imię"/>
@@ -160,7 +158,6 @@ class MainForm extends Component  {
                 <div className="buttons">
                       {(surname.length+name.length+country.length+city.length+street.length+arrive.length+departure.length !== 0) ? (<button  onClick={this.onButtonSearchClick} className='btn search' name="szukaj"> Szukaj </button>) : null}
                     {(surname.length+name.length+country.length+city.length+street.length !== 0) ? (<button onClick={this.onButtonClick} className='btn add' name="dodaj"> Dodaj</button>) : null}
-                      {/*<button onClick={this.onButtonClick} className='btn add' name="dodaj"> Dodaj</button>*/}
                 </div>
             </div>
                 <Main />
