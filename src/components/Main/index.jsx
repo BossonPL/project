@@ -64,12 +64,9 @@ class Main extends Component {
         const dayPrice = odorosla*odoroslaPrice + dzieci*dzieciPrice + mlodziez*mlodziezPrice + auto*autoPrice + bus*busPrice + energia*energiaPrice + przyczepa*przyczepaPrice + camper*camperPrice + namiot2*namiot2Price + namiot4*namiot4Price + namiot6*namiot6Price +motor*motorPrice+ pies*piesPrice+ altana*altanaPrice+((odorosla+dzieci+mlodziez)*taxa);
         const allPrice= dayPrice*numbDays;
         return (
-            <div className="borderBox">
-            <div style={{fontSize:'xx-large', margin : '50px 0 0 0', textAlign: 'center', paddingTop: '20px', color: 'white'}}>{this.state.polish === true ? `Kalkulator pobytu 2019` : `PRICE LIST 2019`}</div>
-            <div> </div>
             <section className="container">
             <div>
-            <table className="zui-table">
+            <table className="zui-table1">
                 <tbody>
                 <tr>
                     <td>{this.state.polish === true ? `OSOBA DOROSŁA` : `ERWACHSENE`}</td>
@@ -191,10 +188,8 @@ class Main extends Component {
                 </tbody>
             </table>
                 {this.state.polish === true ? <button  className="pl" onClick={this.OnButtonLanguage} >{this.state.polish === true ? `DE` : `PL`}</button> : <button  className="de" onClick={this.OnButtonLanguage} >{this.state.polish === true ? `DE` : `PL`}</button>}
-
             </div>
             </section>
-            </div>
         )
     }
 }

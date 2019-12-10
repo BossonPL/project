@@ -6,6 +6,7 @@ import TableTD from "../TableTD";
 import ButtonRemove from "../ButtonRemove";
 import ButtonEdit from "../ButtonEdit";
 import FormHead from "../FormHead";
+import Main from "../Main";
 
 
 
@@ -135,14 +136,17 @@ class MainForm extends Component  {
     };
     render() {
         const {surname, name, country, city, street, arrive, departure, guest, notes ,searchGuests} = this.state;
+        const nonPoland = this.state.guest.filter( el => el.country !== 'Polska');
         return (
             <>
+                <div className="block">
             <div className="container">
                 <div className="logo">
                 </div>
                 <h1> Rejestracja Gości </h1>
                 <p> Ilość gości w bazie : {guest.length}</p>
                 <p> {this.state.nonPolandNbr !==0 ? `Ilość zagranicznych gości w bazie : ${this.state.nonPolandNbr}`: null}</p>
+                {/*<p> {this.state.nonPolandNbr !==0 ? `Ilość zagranicznych gości w bazie : ${nonPoland.length}`: null}</p>*/}
                 <form  className="form" >
                     <input onChange={this.onInputChange} type="text" name="surname" value={surname} placeholder="Nazwisko"/>
                     <input onChange={this.onInputChange} type="text" name="name" value={name} placeholder="Imię"/>
@@ -159,6 +163,8 @@ class MainForm extends Component  {
                       {/*<button onClick={this.onButtonClick} className='btn add' name="dodaj"> Dodaj</button>*/}
                 </div>
             </div>
+                <Main />
+                </div>
                 <table className="zui-table">
                         <tbody>
                         {searchGuests.map(searchGuests => (
@@ -182,7 +188,8 @@ class MainForm extends Component  {
                     ))}
                     </tbody>
                 </table>
-                <div className="bottom"></div>
+
+                <div className="bottom"> </div>
                 </>
         )
     }

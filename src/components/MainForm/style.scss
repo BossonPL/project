@@ -1,8 +1,5 @@
-body {
-  background-image: url("body.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: top;
+.block{
+  display: flex;
 }
 .container {
   margin: 75px auto 40px auto;
@@ -17,7 +14,6 @@ body {
   border-radius: 50px;
   box-shadow: 3px 3px 20px 7px #2681D0;
 }
-
 .logo {
   background-image: url("logo.png");
   width:22em;
@@ -127,4 +123,25 @@ input[type="date"]:not(.has-value):before{
 }
 .bottom {
   height: 10px;
+}
+.zui-table1 {
+  border-radius: 20px;
+  margin: 20px auto auto auto;
+  border-collapse: collapse;
+  background-color: whitesmoke;
+  font: normal 13px Arial, sans-serif;
+}
+.zui-table1 thead th {
+  background-color: #0293DD;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+.zui-table1 tbody td  {
+  background-color: whitesmoke;
+  color: #333;
+  padding: 10px;
+  text-shadow: 1px 1px 1px #fff;
+  text-align: center;
+  border-radius: 50px;
 }
